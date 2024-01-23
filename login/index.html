@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <form method="post" id="SignUp_form" name="SignUp_form">
+        <!-- <form action="" method="post"> -->
+
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username" name="Username"
+                required>
+                <!-- <i class='bx bxs-user'></i> -->
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="E-mail" name="E-mail"
+                required>
+                <!-- <i class='bx bxs-user'></i> -->
+            </div>
+            <div class="input-box">
+                <input type="tel" placeholder="Mobile" name="Mobile"
+                required>
+                <!-- <i class='bx bxs-user'></i> -->
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="Password"
+                required>
+                <!-- <i class="bx bxs-lock-alt"></i> -->
+            </div>
+           
+                
+            <button type="submit" class="btn">Login</button>
+
+          
+            
+        </form>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwBP8n3mb8HQ6CAMbnH4cXT7_7OvVfcwt7yjPdJLRXfHqr63U0O14Qibxs3AhQrkSn1iA/exec'
+        const form = document.forms['SignUp_form']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'post', body: new FormData(form)})
+                .then(response => alert("SUCCESS"))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>
